@@ -1,0 +1,118 @@
+Version 1.4.2
+- GitHub release!
+
+Version 1.4.1
+- Deprecated electionLose
+
+Version 1.4
+- Election upgrade!
+- Show last election
+- Elections every 2 or 4 years
+-- Districts: 2 years
+-- States: 4 years
+-- Will be blocked if not enough time passed
+- Election bug fixes from 1.3
+
+Version 1.3.1
+- Rhode Island towns imported
+
+Version 1.3
+- Elections
+-- States get governors
+-- Districts get representatives
+
+Version 1.2.1
+- View home state for districts
+
+Version 1.2
+- Info for states and districts can be viewed.
+-- Info page lists population, towns, and districts (for states)
+
+Version 1.1.6
+- List of save codes
+
+Version 1.1.5
+- Fixed bug that does not allow for save after viewing changelog
+
+Version 1.1.4
+- Bug fixes
+
+Version 1.1.3
+- Saving game now possible with same save code
+
+Version 1.1.2
+- Saving ends game
+- Changelog & save code more viewable
+
+Version 1.1.1
+- Save code bug fixes
+
+Version 1.1
+- Saving has been added!
+-- Saving through code 97, gives 4 digit save code
+-- input save code on home screen to resume game
+
+Version 1.0.5
+- Start menu bug fixes
+
+Version 1.0.4
+- New start menu
+
+Version 1.0.3
+- Fixes with progression
+
+Version 1.0.2
+- Bug fixes
+
+Version 1.0.1
+- Changelog, code 97
+-- as of version 1.0.4, now code 98
+- About page, code 98
+-- as of version 1.0.4, now home screen
+
+Version 1.0
+- Full release
+- All Massachusetts towns imported, more to come
+- Merging towns is back
+- Progression milestones
+-- 2015: states
+-- 2020: districts
+
+Version 0.4.2
+- Bug fixes from 0.4.1
+
+Version 0.4.1
+- Naming fixes for having districts in multiple states
+
+Version 0.4
+- Districts
+-- groups of towns, smaller than states
+- uniform formatting
+
+Version 0.3.4
+- Multiple states fully working
+
+Version 0.3.3
+- Bug fixes for multiple states
+
+Version 0.3.2
+- Bug fixes for 0.3.1 bugs
+
+Version 0.3.1
+- Bug fixes for states population increases
+
+Version 0.3
+- States
+-- groups of towns
+- List appears when one state is added
+
+Version 0.2.1
+- Fix population addition when merging towns
+
+Version 0.2
+- Merge towns
+
+Version 0.1
+- First build
+- Year increment
+- Adding town to list
