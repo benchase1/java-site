@@ -2,7 +2,7 @@
  import javax.swing.*;
  import java.awt.event.*;
 
- public class BattleshipBoardSpace extends JButton
+ public class BoardSpace extends JButton
  {
    private JLabel test = new JLabel();
   // name of button
@@ -18,7 +18,7 @@
   private ImageIcon placedShip = new ImageIcon("images/placedship.jpg");
  	private boolean hit = false;
 
- 	public BattleshipBoardSpace()
+ 	public BoardSpace()
   {
     add(test);
  		setIcon(water);
@@ -45,7 +45,7 @@
 	}
   // when click detected, set to either hit or miss
   public boolean anotherTurn;
- 	public void setWaterFalse(BattleshipScorePanel score)
+ 	public void setWaterFalse(ScorePanel score)
   {
  		hit = true;
  		if(ship)

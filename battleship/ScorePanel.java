@@ -2,10 +2,10 @@
  import java.awt.*;
  import java.awt.event.*;
 
- public class BattleshipScorePanel extends JPanel
+ public class ScorePanel extends JPanel
  {
  	//array of ship buttons for placement
- 	ScorePanelShipButton [] button;
+ 	ShipButton [] button;
  	int sender;
   //counters
   int attempts = 0;
@@ -20,7 +20,7 @@
   JLabel spacesLeftLbl = new JLabel("Spaces Left: " + spacesLeft);
   JLabel scoreLbl = new JLabel("Score: " + score);
  	//creates score panel
- 	public BattleshipScorePanel()
+ 	public ScorePanel()
   {
   	add(attemptsLbl);
   	add(hitsLbl);

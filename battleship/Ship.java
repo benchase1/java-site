@@ -4,10 +4,10 @@ import java.awt.*;
 //a class that holds data for entire ships
  public class Ship
  {
- 	 BattleshipBoardSpace[] ship;
+ 	 BoardSpace[] ship;
  	 boolean sunk;
  	 //sets ship arrays equal to eachother
- 	 public Ship(BattleshipBoardSpace[] passShip)
+ 	 public Ship(BoardSpace[] passShip)
    {
  		ship = passShip;
  		for(int i = 0; i<ship.length; i++)

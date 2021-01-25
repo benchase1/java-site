@@ -7,9 +7,9 @@ import java.util.ArrayList;
  {
   // creates board spaces
   JPanel boardSpaces = new JPanel();
-  ArrayList<BattleshipBoardSpace> spaces = new ArrayList<BattleshipBoardSpace>();
+  ArrayList<BoardSpace> spaces = new ArrayList<BoardSpace>();
   //creates the score panel
-  BattleshipScorePanel score = new BattleshipScorePanel();
+  ScorePanel score = new ScorePanel();
  	int sender;
  	boolean player;
  	static int compChoice = -1;
@@ -36,7 +36,7 @@ import java.util.ArrayList;
   {
  		for(int i = 0; i < 100; i++)
     {
- 			spaces.add(new BattleshipBoardSpace());
+ 			spaces.add(new BoardSpace());
  			spaces.get(i).setTest(i);
  			spaces.get(i).addActionListener(this);
  		}
@@ -100,10 +100,10 @@ import java.util.ArrayList;
   	sender = newSender;
   }
   //original test does not work
-  public void fillBoardPlayer(BattleshipBoardSpace startSpace)
+  public void fillBoardPlayer(BoardSpace startSpace)
   {
   		boolean endCheck = true;
-  		BattleshipBoardSpace[] tempShip = new BattleshipBoardSpace[sender];
+  		BoardSpace[] tempShip = new BoardSpace[sender];
   		while(endCheck)
       {
     		int space = (int)(Math.random() * spaces.size());
@@ -182,20 +182,20 @@ import java.util.ArrayList;
   {
   	for(int i = 0; i < shipCount; i++)
     {
-  		BattleshipBoardSpace [] tempShip = new BattleshipBoardSpace[i + 1];
+  		BoardSpace [] tempShip = new BoardSpace[i + 1];
   		if(i != 0)
       {
-  			tempShip = new BattleshipBoardSpace[i + 1];
+  			tempShip = new BoardSpace[i + 1];
   		}
   		else{
-  			tempShip = new BattleshipBoardSpace[3];
+  			tempShip = new BoardSpace[3];
   		}
   		boolean endCheck = true;
   		while(endCheck)
       {
     		int space = (int)(Math.random() * spaces.size());
     		int vertOrHori = (int)(Math.random() * 2);
-    		BattleshipBoardSpace startSpace = spaces.get(space);
+    		BoardSpace startSpace = spaces.get(space);
 
     		tempShip[0] = startSpace;
     		int testBreak = 0;

@@ -3,14 +3,14 @@
  import java.awt.event.*;
  import java.util.ArrayList;
 
- public class BattleshipGameFrame extends JFrame
+ public class GameFrame extends JFrame
  {
  	JPanel background = new JPanel();
  	//the two playing grids
  	Board pBoard = new Board(true);
  	Board cBoard = new Board(false);
   ImageIcon ttlImage = new ImageIcon("images/bstitle.jpg");
-  BattleshipScorePanel scoreBoard = new BattleshipScorePanel();
+  ScorePanel scoreBoard = new ScorePanel();
  	//labels
  	JLabel title = new JLabel();
  	JPanel north = new JPanel();
@@ -20,9 +20,9 @@
  	//constantly updating loop
  	boolean loop = true;
 	//generates our main game
- 	public BattleshipGameFrame()
+ 	public GameFrame()
   {
- 		super("Battleship");
+ 		super("Battleship 1.0.3");
  		setSize(1500, 1000);
  		add(background);
   	background.setLayout(new BorderLayout());
