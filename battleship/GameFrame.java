@@ -22,7 +22,7 @@
 	//generates our main game
  	public GameFrame()
   {
- 		super("Battleship 1.0.3");
+ 		super("Battleship 1.0.4");
  		setSize(1500, 1000);
  		add(background);
   	background.setLayout(new BorderLayout());

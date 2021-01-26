@@ -120,12 +120,10 @@
     hitsLbl.setText("Hits: " + hits);
     scoreLbl.setText("Score: " + score);
   }
-  // when miss detected, add 1 miss and remove 5 points
+  // when miss detected, add 1 miss
   public void setMisses()
   {
     misses++;
-    score = score - 5;
     missesLbl.setText("Misses: " + misses);
-    scoreLbl.setText("Score: " + score);
   }
  }//end class
