@@ -1,6 +1,7 @@
 import java.text.*;
 import java.util.*;
 import java.io.*;
+import java.lang.Math.*;
 public class nation
 {
 
@@ -55,7 +56,7 @@ public class nation
     }
 
     System.out.println("Nation Simulator");
-    System.out.println("Version 1.4.2");
+    System.out.println("Version 1.4.4");
     System.out.println("-----------------------------------------------------------------------");
 
     System.out.println("Saves:");
@@ -481,6 +482,8 @@ public class nation
         System.out.println("11. View district info");
         System.out.println("12. Elect district office");
       }
+      System.out.println("13. View town info");
+      System.out.println("14. Elect town office");
       System.out.println("97. View changelog");
       System.out.println("98. Save and quit");
       System.out.println("99. Quit without saving");
@@ -519,6 +522,8 @@ public class nation
 
         townList.remove(nextTown);
         popTownList.remove(nextTown);
+
+        choice = 14;
       }
 
       if (choice == 3)
@@ -672,6 +677,11 @@ public class nation
             System.out.println("Governor: " + electionWin.get(i));
             System.out.println("Votes: " + winVotes.get(i) + " - " + loseVotes.get(i));
             System.out.println("Election Year: " + electionYear.get(i));
+            double totalVotes = winVotes.get(i) + loseVotes.get(i);
+            double turnout = totalVotes / playerStatesPop.get(stateView);
+            turnout = 100.0 * turnout;
+            turnout = Math.round(turnout * 100.0) / 100.0;
+            System.out.println("Turnout: " + turnout + "%");
           }
         }
 
@@ -857,6 +867,11 @@ public class nation
             System.out.println("Representative: " + electionWin.get(i));
             System.out.println("Votes: " + winVotes.get(i) + " - " + loseVotes.get(i));
             System.out.println("Election Year: " + electionYear.get(i));
+            double totalVotes = winVotes.get(i) + loseVotes.get(i);
+            double turnout = totalVotes / playerDistrictsPop.get(districtView);
+            turnout = 100.0 * turnout;
+            turnout = Math.round(turnout * 100.0) / 100.0;
+            System.out.println("Turnout: " + turnout + "%");
           }
         }
 
@@ -929,6 +944,118 @@ public class nation
 
           double winPct = 0.01 * ((Math.random() * 50) + 50);
           int turnout = (int)(playerDistrictsPop.get(electDistrict) * Math.random());
+          int win = (int)(turnout * winPct);
+          winVotes.add(win);
+          int lose = (int)(turnout * (1 - winPct));
+          loseVotes.add(lose);
+
+          electionYear.add(year);
+        }
+      }
+
+      if (choice == 13)
+      {
+        System.out.println("Select town to view");
+        for(int h = 0; h < playerTowns.size(); h++)
+        {
+          System.out.println((h + 1) + ". " + playerTowns.get(h));
+        }
+        System.out.print("Choice: ");
+        int townView = in.nextInt() - 1;
+
+        System.out.println("-----------------------------------------------------------------------");
+
+        System.out.println("Town: " + playerTowns.get(townView));
+        System.out.println("Population: " + playerTownsPop.get(townView));
+
+        for (int i = 0; i < electionWin.size(); i++)
+        {
+          if (playerTowns.get(townView).equals(electionPlace.get(i)))
+          {
+            System.out.println("Mayor: " + electionWin.get(i));
+            System.out.println("Votes: " + winVotes.get(i) + " - " + loseVotes.get(i));
+            System.out.println("Election Year: " + electionYear.get(i));
+            double totalVotes = winVotes.get(i) + loseVotes.get(i);
+            double turnout = totalVotes / playerTownsPop.get(townView);
+            turnout = 100.0 * turnout;
+            turnout = Math.round(turnout * 100.0) / 100.0;
+            System.out.println("Turnout: " + turnout + "%");
+          }
+        }
+
+        in.nextLine(); // absorb enter key
+        in.nextLine();
+      }
+
+      if (choice == 14)
+      {
+        int electTown = 0;
+        int lastElection = 0;
+        int reElection = 4; // 4 year for mayor term
+
+        if (save == 1) // new game
+        {
+          electTown = 0;
+        }
+        if (ogChoice == 2)
+        {
+          electTown = playerTowns.size() - 1;
+        }
+        else
+        {
+          System.out.println("Select town to elect to");
+          for(int h = 0; h < playerTowns.size(); h++)
+          {
+            System.out.println((h + 1) + ". " + playerTowns.get(h));
+          }
+          System.out.print("Choice: ");
+          electTown = in.nextInt() - 1;
+
+          for (int i = 0; i < electionPlace.size(); i++)
+          {
+            if (electionPlace.get(i).equals(playerTowns.get(electTown)))
+            {
+              lastElection = electionYear.get(i);
+            }
+          }
+        }
+
+        reElection = lastElection + 2;
+        if (year < reElection)
+        {
+          System.out.println("Town not eligible for election. Next election in " + reElection + ".");
+          in.nextLine(); // absorb enter key
+          in.nextLine();
+        }
+        else
+        {
+          for (int i = 0; i < electionPlace.size(); i++)
+          {
+            if (electionPlace.get(i).equals(playerTowns.get(electTown)))
+            {
+              electionYear.remove(i);
+              electionWin.remove(i);
+              electionPlace.remove(i);
+            }
+          }
+
+          electionPlace.add(playerTowns.get(electTown));
+
+          String [] candidates = new String[2];
+
+          int rand1 = (int)(Math.random() * firstName.size());
+          int rand2 = (int)(Math.random() * lastName.size());
+          candidates[0] = firstName.get(rand1) + " " + lastName.get(rand2);
+
+          int rand3 = (int)(Math.random() * firstName.size());
+          int rand4 = (int)(Math.random() * lastName.size());
+          candidates[1] = firstName.get(rand3) + " " + lastName.get(rand4);
+
+          int winner = (int)(Math.random() * 2);
+          electionWin.add(candidates[winner]);
+
+          double winPct = 0.01 * ((Math.random() * 50) + 50);
+          int turnout = (int)(playerTownsPop.get(electTown) * Math.random());
           int win = (int)(turnout * winPct);
           winVotes.add(win);
           int lose = (int)(turnout * (1 - winPct));

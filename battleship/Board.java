@@ -83,7 +83,6 @@ import java.util.ArrayList;
 			  if(spaces.get(i) == source)
         {
 				  spaces.get(i).setWaterFalse(score);
-				  spaces.get(i).removeActionListener(this);
 				  anotherTurn = spaces.get(i).anotherTurn;
 		  	}
 		  }
